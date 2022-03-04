@@ -32,16 +32,6 @@ public class Board {
 		}
 	}
 	
-//	public void getEmptyCells() {
-//		for(int i=0;i<grid.length;i++) {
-//			for(int j=0;j<grid.length;j++) {
-//				if(grid[i][j].getValue()=="-") {
-//					emptyCells.add(grid[i][j]);
-//				}				
-//			}
-//		}
-//	}
-	
 	public void displayBoard() {
 		for(int i=0;i<grid.length;i++) {
 			for(int j=0;j<grid.length;j++) {
@@ -52,63 +42,89 @@ public class Board {
 		}
 	}
 
-	public boolean isCellEmpty(int x, int y) {
-		// TODO Auto-generated method stub
-		if(grid[x][y].getValue().equals("-")) {
-			return true;
-		}
-		return false;
+//	public boolean isCellEmpty(int x, int y) {
+//		// TODO Auto-generated method stub
+//		if(grid[x][y].getValue().equals("-")) {
+//			return true;
+//		}
+//		return false;
+//	}
+
+//	public void setPlayersNextPiece(Player currentPlayer, int x, int y) {
+//		// TODO Auto-generated method stub
+//		grid[x][y].setValue(currentPlayer.getPlayerPiece());
+//		
+//	}
+
+//	public boolean hasPlayerWon(Player currentPlayer, int x, int y) {
+//		// TODO Auto-generated method stub
+//		//check column
+//		String piece=currentPlayer.getPlayerPiece();
+//		for(int i=0;i<grid.length;i++) {
+//			if(grid[i][y].getValue()!=piece) {
+//				break;
+//			}
+//			if(i==grid.length-1)
+//				return true;
+//		}
+//		
+//		//check row
+//		for(int i=0;i<grid.length;i++) {
+//			if(grid[x][i].getValue()!=piece) {
+//				break;
+//			}
+//			if(i==grid.length-1)
+//				return true;
+//		}
+//		
+//		//check diagonal
+//		if(x==y) {
+//			for(int i = 0; i < grid.length; i++){
+//                if(grid[i][i].getValue() != piece)
+//                    break;
+//                if(i == grid.length-1){
+//                	return true;
+//                }
+//            }
+//		}
+//		
+//		//check anti-diagonal
+//		if(x+y==grid.length-1) {
+//			for(int i = 0; i < grid.length; i++){
+//                if(grid[i][grid.length-1-i].getValue() != piece)
+//                    break;
+//                if(i == grid.length-1){
+//                	return true;
+//                }
+//            }
+//		}
+//		
+//		return false;
+//	}
+
+	public Cell[][] getGrid() {
+		return grid;
 	}
 
-	public void setPlayersNextPiece(Player currentPlayer, int x, int y) {
-		// TODO Auto-generated method stub
-		grid[x][y].setValue(currentPlayer.getPlayerPiece());
-		
+	public void setGrid(Cell[][] grid) {
+		this.grid = grid;
 	}
 
-	public boolean hasPlayerWon(Player currentPlayer, int x, int y) {
-		// TODO Auto-generated method stub
-		//check column
-		String piece=currentPlayer.getPlayerPiece();
-		for(int i=0;i<grid.length;i++) {
-			if(grid[i][y].getValue()!=piece) {
-				break;
-			}
-			if(i==grid.length-1)
-				return true;
-		}
-		
-		//check row
-		for(int i=0;i<grid.length;i++) {
-			if(grid[x][i].getValue()!=piece) {
-				break;
-			}
-			if(i==grid.length-1)
-				return true;
-		}
-		
-		//check diagonal
-		if(x==y) {
-			for(int i = 0; i < grid.length; i++){
-                if(grid[i][i].getValue() != piece)
-                    break;
-                if(i == grid.length-1){
-                	return true;
-                }
-            }
-		}
-		
-		//check anti-diagonal
-		if(x+y==grid.length-1) {
-			for(int i = 0; i < grid.length; i++){
-                if(grid[i][grid.length-1-i].getValue() != piece)
-                    break;
-                if(i == grid.length-1){
-                	return true;
-                }
-            }
-		}
-		
-		return false;
+	public List<Cell> getEmptyCells() {
+		return emptyCells;
 	}
+
+	public void setEmptyCells(List<Cell> emptyCells) {
+		this.emptyCells = emptyCells;
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
+	
 }
